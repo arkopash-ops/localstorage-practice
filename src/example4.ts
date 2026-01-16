@@ -1,61 +1,32 @@
-interface Data {
-  name: string;
+interface User {
+  username: string;
+  password?: string;
   email: string;
-  message: string;
 }
 
-const inputName = document.getElementById("name") as HTMLInputElement;
-const inputEmail = document.getElementById("email") as HTMLInputElement;
-const messageTxtArea = document.getElementById(
-  "message"
-) as HTMLTextAreaElement;
-const draftBtn = document.getElementById("draftBtn") as HTMLButtonElement;
-const sendBtn = document.getElementById("sendBtn") as HTMLButtonElement;
-const clearBtn = document.getElementById("clearBtn") as HTMLButtonElement;
+const loginBtn = document.getElementById("loginBtn") as HTMLButtonElement;
+const usernameInput = document.getElementById("username") as HTMLInputElement;
+const passwordInput = document.getElementById("password") as HTMLInputElement;
+const emailInput = document.getElementById("email") as HTMLInputElement;
 
-function clearAll(): void {
-  inputName.value = "";
-  inputEmail.value = "";
-  messageTxtArea.value = "";
-}
+loginBtn.addEventListener("click", () => {
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
+  const email = emailInput.value.trim();
 
-function emptyField(): boolean {
-  if (
-    !inputName.value.trim() ||
-    !inputEmail.value.trim() ||
-    !messageTxtArea.value.trim()
-  ) {
-    alert("All fields are required!");
-    return true;
+  if (!username || !email) {
+    alert("Username and email are required");
+    return;
   }
-  return false;
-}
 
-draftBtn.addEventListener("click", () => {
-  if (emptyField()) return;
-
-  const data: Data = {
-    name: inputName.value,
-    email: inputEmail.value,
-    message: messageTxtArea.value,
+  const users: User = {
+    username,
+    email,
+    ...(password && { password })
   };
-  console.log("object of Data: ", data);
 
-  const strData = JSON.stringify(data);
-  localStorage.setItem("draft", strData);
-  alert("Message has been draft.");
-  console.log("Drafted Message:", strData);
+  // Store object safely
+  localStorage.setItem("user", JSON.stringify(users));
 
-  clearAll();
-});
-
-clearBtn.addEventListener("click", () => {
-  clearAll();
-});
-
-sendBtn.addEventListener("click", () => {
-  if (emptyField()) return;
-
-  alert("Successfully send the msessage!");
-  clearAll();
+  window.location.href = "dashboard.html";
 });

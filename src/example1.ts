@@ -1,4 +1,4 @@
-interface User {
+interface Users {
   username: string;
 }
 
@@ -8,12 +8,12 @@ const deleteBtn = document.getElementById("deleteBtn") as HTMLButtonElement;
 const output = document.getElementById("output") as HTMLParagraphElement;
 
 saveBtn.addEventListener("click", () => {
-  const user: User = {
+  const users: Users = {
     username: input.value,
   };
-  console.log("Object", user);
+  console.log("Object", users);
 
-  const strUser = JSON.stringify(user);
+  const strUser = JSON.stringify(users);
   localStorage.setItem("user", strUser);
   output.textContent = "User saved!";
   console.log("strUser:", strUser);
