@@ -1,0 +1,56 @@
+* {
+  border: none;
+  font-family: cursive;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+input {
+  padding: 8px 12px;
+  margin: 5px;
+  background-color: aliceblue;
+  border-radius: 4px;
+}
+
+.btn {
+  cursor: pointer;
+  font-size: large;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 4px;
+}
+
+#saveBtn {
+  background-color: darkgreen;
+  color: #fff;
+}
+
+#saveBtn:hover {
+  background-color: greenyellow;
+  color: black;
+}
+
+#deleteBtn {
+  background-color: darkred;
+  color: #fff;
+}
+
+#deleteBtn:hover {
+  background-color: orangered;
+  color: black;
+}
+
+#output {
+  margin-top: 15px;
+}

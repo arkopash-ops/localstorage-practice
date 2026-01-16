@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment Settings
+    "module": "es6",      // For browsers
+    "target": "es6",      // Modern browsers
+    "lib": ["dom", "es6"], // DOM + ES6 APIs
+    "types": [],
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
+
+    // Stricter Typechecking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Module / Style
+    "isolatedModules": true,
+    "skipLibCheck": true
+  }
+}
